@@ -109,8 +109,8 @@ class NullObject(BaseModel):
 
     def __new__(cls, *args: Any, **kwargs: Any) -> Any:
         #These none types should be replaced by the null object
-        if kwargs in (None, {}):
-            kwargs =
+        # if kwargs in (None, {}):
+        #     kwargs =
 
         return super().__new__(cls)
 
