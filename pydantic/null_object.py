@@ -85,15 +85,15 @@ def create_null_object_model(
         field_name: nullify_field(field_definition) for field_name, field_definition in field_definitions.items()
     }
 
-    null_model = Literal
-    # create_model(
-    #     model_name=model_name,
-    #     __config__=__config__,
-    #     __base__=__base__,
-    #     __module__=__module__,
-    #     __validators__=__validators__,
-    #     **null_fields,
-    # )
+    #Null object should probably actually be a literal
+    null_model = create_model(
+        model_name=model_name,
+        __config__=__config__,
+        __base__=__base__,
+        __module__=__module__,
+        __validators__=__validators__,
+        **null_fields,
+    )
     # Don't allow partial construction of a null object
     # It must match entirely or it isn't valid
     # This prevents null objects from ever getting confused with valid objects
